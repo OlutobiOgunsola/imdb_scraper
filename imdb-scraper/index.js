@@ -1,12 +1,14 @@
 const express = require("express");
-const nodemon = require("nodemon");
 const app = express();
 const scraper = require("./scraper");
 
+const cors = require("cors");
+
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.listen(port, () => {
-  `App listening on ${port}`;
+  console.log(`App listening on ${port}`);
 });
 
 app.get("/", (req, res) => {
